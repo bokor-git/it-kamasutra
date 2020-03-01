@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b0edcf91-ef2f-4828-a87c-95049eccaa56" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/it-kamasutra" />
+  </component>
+  <component name="ProjectId" id="1YRwdwoUP3YJsluuD6CoqkAL0K3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\IT\Project\ReactJS\it-kamasutra\src\components" />
+      <recent name="C:\IT\Project\ReactJS\it-kamasutra\src\components\Search" />
+      <recent name="C:\IT\Project\ReactJS\it-kamasutra\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\IT\Project\ReactJS\it-kamasutra\src\components\Profile" />
+      <recent name="C:\IT\Project\ReactJS\it-kamasutra\src\components\Header" />
+      <recent name="C:\IT\Project\ReactJS\it-kamasutra\src\components" />
+      <recent name="C:\IT\Project\ReactJS\it-kamasutra\src" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0edcf91-ef2f-4828-a87c-95049eccaa56" name="Default Changelist" comment="" />
+      <created>1582918805688</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582918805688</updated>
+      <workItem from="1582918813846" duration="240000" />
+      <workItem from="1582919119294" duration="2000" />
+      <workItem from="1582919166321" duration="63000" />
+      <workItem from="1582919257711" duration="6000" />
+      <workItem from="1582919280564" duration="6000" />
+      <workItem from="1582919323679" duration="98000" />
+      <workItem from="1582919438425" duration="1000" />
+      <workItem from="1582961571490" duration="3000" />
+      <workItem from="1582961668302" duration="31000" />
+      <workItem from="1582961759434" duration="19000" />
+      <workItem from="1582961807888" duration="8000" />
+      <workItem from="1582961833555" duration="4000" />
+      <workItem from="1582961854747" duration="377000" />
+      <workItem from="1582962257363" duration="31000" />
+      <workItem from="1582962312315" duration="381000" />
+      <workItem from="1582962723294" duration="151000" />
+      <workItem from="1582963214948" duration="5180000" />
+      <workItem from="1582979871749" duration="3808000" />
+      <workItem from="1583002281440" duration="395000" />
+      <workItem from="1583005133580" duration="1780000" />
+      <workItem from="1583049908636" duration="6708000" />
+      <workItem from="1583060015484" duration="7012000" />
+      <workItem from="1583086467624" duration="30000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="268" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582983078535">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="268" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1582983078535" />
+    <state x="557" y="307" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583085443553">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="557" y="307" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.860@0.0.1600.860" timestamp="1583085443553" />
+    <state x="572" y="360" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1582982324454">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="572" y="360" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1600.860@0.0.1600.860" timestamp="1582982324454" />
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1583086489627">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1583086489627" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Event/Event.jsx</url>
+          <line>1</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
