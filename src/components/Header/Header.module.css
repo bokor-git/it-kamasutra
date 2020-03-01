@@ -1,0 +1,8 @@
+
+.header{
+    background-color: gray;
+    grid-column: 1/4;
+    grid-row: 1;
+}
+
+

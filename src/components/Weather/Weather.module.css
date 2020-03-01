@@ -1,0 +1,7 @@
+
+
+.weather {
+    background-color: orchid;
+    grid-column: 3;
+    grid-row: 3/6;
+}
