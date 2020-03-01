@@ -5,7 +5,7 @@ import Profile from "./components/Profile/Profile";
 import Search from "./components/Search/Search";
 import Category from "./components/Category/Category";
 import People from "./components/People/People";
-import Event from "./components/Event/Event";
+import Events from "./components/Events/Events";
 import Suggestion from "./components/Suggestion/Suggestion";
 import Explore from "./components/Explore/Explore";
 import Weather from "./components/Weather/Weather";
@@ -20,7 +20,7 @@ const App = () => {
             <Category/>
             <Search/>
             <People/>
-            <Event/>
+            <Events/>
             <Suggestion/>
             <Explore/>
             <Weather/>
