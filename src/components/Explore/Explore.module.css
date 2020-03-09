@@ -4,4 +4,8 @@
     background-color: olivedrab;
     grid-column: 3;
     grid-row: 2;
+
+}
+.explore p1 {
+    font-size: 10px;
 }

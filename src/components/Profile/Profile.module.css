@@ -3,4 +3,12 @@
     background-color: rosybrown;
     grid-column: 1;
     grid-row: 2/5;
+
+}
+.profile a {
+    color: white;
+    text-decoration: none;
+}
+.profile a.active {
+    color: darkcyan;
 }
