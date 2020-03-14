@@ -12,8 +12,6 @@ import MyEvents from "./components/My Events/MyEvents";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
 import Posts from "./components/Posts/Posts";
-import EventItem from "./components/Events/Event/EventItem";
-import {addPost} from "./Redux/State";
 
 
 const App = (props) => {
@@ -26,12 +24,9 @@ const App = (props) => {
                 <Search/>
                 <People/>
                 <div className="wrapper-content">
-             {/*       <Route path="/Events" component={Events}/>
-                    <Route path="/Dialogs" component={Dialogs}/>
-                    <Route path="/Posts" component={Posts}/>*/}
-                    <Route path="/Events" render={()=>(<Events eventData={props.appState.eventData} />)}/>
-                    <Route path="/Dialogs" render={()=>(<Dialogs massageData={props.appState.profilePage.massageData} dialogsData={props.appState.profilePage.dialogsData}/>)}/>
-                    <Route path="/Posts" render={()=>(<Posts postData={props.appState.postPage.postData} addPost={props.addPost}/>)}/>
+                    <Route path="/Events" render={()=>(<Events eventData={props.state.eventData} />)}/>
+                    <Route path="/Dialogs" render={()=>(<Dialogs massageData={props.state.profilePage.massageData} dialogsData={props.state.profilePage.dialogsData}/>)}/>
+                    <Route path="/Posts" render={()=>(<Posts postData={props.state.postPage.postData} addPost={props.addPost}/>)}/>
                 </div>
                 <Suggestion/>
                 <Explore/>
