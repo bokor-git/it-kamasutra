@@ -1,12 +1,15 @@
-.search{
+.search {
     background-color: aquamarine;
     grid-column: 2;
     grid-row: 2;
 }
+
 .search h1 {
     margin: 0px;
 }
+
 .search textarea {
-font-size: 10px;
-width: 500px;
+    font-size: 20px;
+    width: 500px;
+    height: 25px;
 }
