@@ -2,25 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0edcf91-ef2f-4828-a87c-95049eccaa56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Events/Event/Event.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/Event/Event.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/Event/Event.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/Event/EventItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Events/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/Events.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Events/Events.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/Events.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Explore/Explore.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Explore/Explore.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Explore/Explore.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Explore/Explore.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/People/People.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/People/People.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Search/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search/Search.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Suggestion/Suggestion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Suggestion/Suggestion.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Weather/Weather.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Weather/Weather.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +100,8 @@
       <workItem from="1583343287473" duration="8192000" />
       <workItem from="1583352259078" duration="387000" />
       <workItem from="1583590923689" duration="87000" />
+      <workItem from="1583867643913" duration="1251000" />
+      <workItem from="1584036023401" duration="23000" />
     </task>
     <servers />
   </component>
@@ -136,10 +125,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="572" y="360" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1600.860@0.0.1600.860" timestamp="1582982324454" />
-    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1583591003592">
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1584036042911">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1583591003592" />
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1584036042911" />
     <state x="0" y="144" key="SettingsEditor" timestamp="1583090023169">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

@@ -1,8 +1,11 @@
 
 .header{
-    background-color: gray;
+    background-color: black;
     grid-column: 1/4;
     grid-row: 1;
+}
+.header h1 {
+    color: white;
 }
 
 

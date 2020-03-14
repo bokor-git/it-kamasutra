@@ -1,12 +1,14 @@
 
 import React from 'react';
 import s from "./Events.module.css";
-import Event from "./Event/Event";
+import EventItem from "./Event/EventItem";
+
+
 const Events = (props)=> {
     return(
         <div className={s.event}>
             <h1>EVENTS!</h1>
-            <Event/>
+            <EventItem eventData={props.eventData} />
         </div>)
 }
 

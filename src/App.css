@@ -2,7 +2,7 @@
     display: grid;
     grid-gap: 20px;
 
-    grid-template-rows: 75px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+    grid-template-rows: 75px 100px 100px 100px 100px 100px 100px 100px 100px 500px ;
     grid-template-columns: 1fr 2fr 1fr;
     text-align: center;
     width: 1200px;
@@ -13,9 +13,8 @@
 
 .wrapper-content {
 
-    background-color: greenyellow;
+    background-color: darkseagreen;
     grid-column: 2;
-    grid-row: 3/8;
+    grid-row: 3/11;
 
 }
-

@@ -3,3 +3,10 @@
     grid-column: 2;
     grid-row: 2;
 }
+.search h1 {
+    margin: 0px;
+}
+.search textarea {
+font-size: 10px;
+width: 500px;
+}

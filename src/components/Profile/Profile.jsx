@@ -8,7 +8,7 @@ const Profile = () => {
             <h1>Profile menu</h1>
             <h4><NavLink to="/Dialogs" activeClassName = {s.active}> Dialogs</NavLink></h4>
             <h4><NavLink to="/Events" activeClassName = {s.active}>Events</NavLink></h4>
-            <h4> <NavLink to="/Massages" activeClassName={s.active}>Massages</NavLink> </h4>
+            <h4> <NavLink to="/Posts" activeClassName={s.active}>Posts</NavLink> </h4>
             </div>)
 }
 
