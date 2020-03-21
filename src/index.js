@@ -1,9 +1,17 @@
 import React from 'react';
 import './index.css';
+import store from "./Redux/redux-store";
+import ReactDOM from 'react-dom';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state from "./Redux/State";
-import {allTreeRerender} from "./render";
-allTreeRerender(state);
+import {BrowserRouter} from "react-router-dom";
+
+    ReactDOM.render(
+        <BrowserRouter>
+            <App store={store}/>
+        </BrowserRouter>, document.getElementById('root'));
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

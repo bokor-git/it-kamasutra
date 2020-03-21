@@ -6,10 +6,11 @@ const Profile = () => {
     return (
         <div className={s.profile}>
             <h1>Profile menu</h1>
-            <h4><NavLink to="/Dialogs" activeClassName = {s.active}> Dialogs</NavLink></h4>
-            <h4><NavLink to="/Events" activeClassName = {s.active}>Events</NavLink></h4>
-            <h4> <NavLink to="/Posts" activeClassName={s.active}>Posts</NavLink> </h4>
-            </div>)
+            <h4><NavLink to="/Dialogs" activeClassName={s.active}> Dialogs</NavLink></h4>
+            <h4><NavLink to="/Events" activeClassName={s.active}>Events</NavLink></h4>
+            <h4><NavLink to="/Posts" activeClassName={s.active}>Posts</NavLink></h4>
+            <h4><NavLink to="/UsersContainer" activeClassName={s.active}>Uses</NavLink></h4>
+        </div>)
 }
 
 export default Profile;

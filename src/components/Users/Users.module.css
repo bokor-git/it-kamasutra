@@ -1,0 +1,6 @@
+.users img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 10px;
+    border: black solid 2px;
+}
