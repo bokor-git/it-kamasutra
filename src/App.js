@@ -1,42 +1,74 @@
 import React from 'react';
 import './App.css';
-import Header from "./components/Header/Header";
-import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile-menu/Profile";
 import Search from "./components/Search/Search";
 import Category from "./components/Category/Category";
 import People from "./components/People/People";
-import Events from "./components/Events/Events";
 import Suggestion from "./components/Suggestion/Suggestion";
 import Explore from "./components/Explore/Explore";
-import MyEvents from "./components/My Events/MyEvents";
-import {Route} from "react-router-dom";
+import {Route, withRouter} from "react-router-dom";
 import Posts from "./components/Posts/Posts";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import UserProfileContainer from "./components/Users/UserProfile/UserProfileContainer";
+import NewsContainer from "./components/News/NewsContainer";
+import EventContainer from "./components/Events/EventContainer";
+import MyEventContainer from "./components/MyEvents/MyEventContainer";
+import HeaderContainer from "./components/Header/HeaderConteiner";
+import Login from "./components/Login/Login";
+import {connect} from "react-redux";
+import {getAuthUserData, singOutThunk} from "./Redux/auth-reducer";
+import {compose} from "redux";
+import {initializeApp} from "./Redux/app-reducer";
+import Loading from "./components/common/Conponents/Loading";
 
 
-const App = (props) => {
-    return (
+
+class App extends React.Component {
+    componentDidMount() {
+        this.props.initializeApp()
+    }
+
+    render() {
+        if(!this.props.initialized){
+            return <Loading/>
+        }
+        return (
             <div className="wrapper">
-                <Header/>
+                <HeaderContainer store={this.props.store}/>
                 <Profile/>
                 <Category/>
                 <Search/>
                 <People/>
                 <div className="wrapper-content">
-                    <Route path="/Events" render={() => (<Events store={props.store}/>)}/>
-                    <Route path="/Dialogs" render={() => (<DialogsContainer store={props.store}/>)}/>
-                    <Route path="/Posts" render={() => (<Posts store={props.store}/>)}/>
-                    <Route path="/UsersContainer" render={() => (<UsersContainer store={props.store}/> )}/>
+                    <Route path="/Events" render={() => (<EventContainer/>)}/>
+                    <Route path="/Dialogs" render={() => (<DialogsContainer/>)}/>
+                    <Route path="/Posts" render={() => (<Posts/>)}/>
+                    <Route path="/Users" render={() => (<UsersContainer/>)}/>
+                    <Route path="/News" render={() => (<NewsContainer/>)}/>
+                    <Route path="/Profile/:userID" render={() => (<UserProfileContainer/>)}/>
+                    <Route exact path="/Profile" render={() => (<UserProfileContainer/>)}/>
+                    <Route path="/Login" render={() => (<Login/>)}/>
                 </div>
                 <Suggestion/>
                 <Explore/>
-                <MyEvents/>
+                <MyEventContainer store={this.props.store}/>
             </div>
-    )
+        )
 
+    }
 }
 
-export default App;
+const mapStateToProps = (state)=>({
+    initialized: state.app.initialized
+})
+
+export default compose(
+    withRouter,
+    connect(mapStateToProps, {initializeApp})
+)(App)
+
+
+
 
 

@@ -1,26 +1,37 @@
-
 import {sendMassageCreator, updateNewMassageBodyCreator} from "../../Redux/dialog-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import React from "react";
+import withAuthRedirect from "../../hoc/AuthRedirect";
+import {compose} from "redux";
 
 
-let mapStateToProps = (state)=>{
-    return {
-        dialogsData: state.profilePage.dialogsData,
-        massageData: state.profilePage.massageData,
-        newMassageBody: state.profilePage.newMassageBody
-    }
-};
-
-let mapDispatchToProps = (dispatch) => {
-    return{
-        onNewMessageChange: (body)=>{dispatch(updateNewMassageBodyCreator(body))},
-        onSendMassageButtonClick: ()=>{dispatch(sendMassageCreator())}
+class DialogsContainerAPI extends React.Component {
+    render() {
+        return <Dialogs {...this.props}/>
     }
 }
 
-let DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+let mapStateToProps = (state) => {
+    return {
+        dialogsData: state.dialogPage.dialogsData,
+        massageData: state.dialogPage.massageData,
 
+    }
 
-export default DialogsContainer;
+};
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        onSendMassageButtonClick: (massage) => {
+            dispatch(sendMassageCreator(massage))
+        }
+    }
+};
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)
+(DialogsContainerAPI)
 

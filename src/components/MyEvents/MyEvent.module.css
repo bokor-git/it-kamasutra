@@ -1,0 +1,9 @@
+.event {
+    background-color: goldenrod;
+    grid-column: 3;
+    grid-row: 3/6;
+}
+
+.event li {
+    font-weight: bold;
+}

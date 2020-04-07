@@ -4,3 +4,9 @@
     margin: 10px;
     border: black solid 2px;
 }
+
+
+
+.selected {
+    font-weight: bold;
+}

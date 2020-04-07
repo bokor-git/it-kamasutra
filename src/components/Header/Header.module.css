@@ -4,8 +4,17 @@
     grid-column: 1/4;
     grid-row: 1;
 }
-.header h1 {
+.headerText {
     color: white;
+    position: relative ;
+    font-size: 50px;
+    font-weight: bold;
 }
 
-
+.login{
+    color: white;
+    position: absolute;
+    right: 200px;
+    top: 10px;
+    padding: 2px;
+}

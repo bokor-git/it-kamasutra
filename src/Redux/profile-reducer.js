@@ -1,58 +1,63 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+import {profileAPI, userAPI} from "../api/api";
 
-export const addPostActionCreator = () => {
-    return {type: ADD_POST}
-}
-export const updateNewPostTextActionCreator = (newPost) => {
-    return {type: UPDATE_NEW_POST_TEXT, newPost}
-}
+const SET_USER_PROFILE = "SET_USER_PROFILE"
+const SET_STATUS_PROFILE = "SET_STATUS_PROFILE"
 
+export const setProfileDate = (profileData) => ({type: SET_USER_PROFILE, profileData});
+export const setStatusProfile = (status) => ({type: SET_STATUS_PROFILE, status});
 
 let initialState = {
-    postData: [
-        {
-            id: 1,
-            postText: "So, you want to have a really long race that eventually will attract the best runners from around the world. Unlike other races wute totaling somewhere around 24 to 26 miles",
-            postLike: 2,
-            postAvatar: "https://cdn4.iconfinder.com/data/icons/avatars-circle-2/72/146-512.png"
-        },
-        {
-            id: 2,
-            postText: "In a nod to Greek history, the first marathon commemorated the run of the soldier Pheidippides from a battlefield near the town of Marathon, Greece, to Athens in 490 B.C.",
-            postLike: 3,
-            postAvatar: "https://cdn4.iconfinder.com/data/icons/avatars-circle-2/72/146-512.png"
-        },
-        {
-            id: 3,
-            postText: "Despite the success of that first race, it took 13 more years of arguing before the International Amateur Athletic Federatio Olympics, there were six different distances.",
-            postLike: 6,
-            postAvatar: "https://cdn4.iconfinder.com/data/icons/avatars-circle-2/72/146-512.png"
-        }
-    ],
-    newPostText: "it-Kamasutra"
+    profileData: null,
+    status: ""
 };
-const profileReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case ADD_POST:
-            let newPost = {
-                postText: state.newPostText,
-                postLike: 1,
-                postAvatar: "https://cdn4.iconfinder.com/data/icons/avatars-circle-2/72/146-512.png"
-            };
-            return {
-                ...state,
-                postData: [...state.postData, newPost],
-                newPostText: " "
-            };
-        case UPDATE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPostText: action.newPost
-            };
 
+const myProfileReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case SET_USER_PROFILE: {
+            return {
+                ...state,
+                profileData: action.profileData
+            }
+        }
+        case SET_STATUS_PROFILE: {
+            return {
+                ...state,
+                status: action.status
+            }
+        }
         default:
             return state
     }
+};
+export const getProfileInfo = (userId) => {
+    return (dispatch) => {
+        profileAPI.getProfile(userId).then(
+            response => {
+                dispatch(setProfileDate(response.data))
+            }
+        )
+    }
 }
-export default profileReducer;
+
+export const getProfileStatus = (userId) => {
+    return (dispatch) => {
+        profileAPI.getStatus(userId).then(
+            response => {
+                dispatch(setStatusProfile(response.data))
+            }
+        )
+    }
+}
+
+export const updateProfileStatus = (status) => {
+    return (dispatch) => {
+        profileAPI.updateStatus(status).then(
+            response => {
+                if (response.data.resultCode===0)
+                dispatch(setStatusProfile(status))
+            }
+        )
+    }
+}
+
+export default myProfileReducer;

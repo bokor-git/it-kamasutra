@@ -1,4 +1,4 @@
-import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
 import dialogReducer from "./dialog-reducer";
 
 
@@ -66,7 +66,7 @@ let store = {
     },
     dispatch(action) {
 
-        this._state.postPage = profileReducer(this._state.postPage, action)
+        this._state.postPage = dialogsReducer(this._state.postPage, action)
         this._state.profilePage = dialogReducer(this._state.profilePage, action)
         this._callSubscriber(this._state);
     }

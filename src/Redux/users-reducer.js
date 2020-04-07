@@ -1,39 +1,45 @@
+import {userAPI} from "../api/api";
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_USERS = "SET_TOTAL_USERS";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+const FOLLOFING_IN_PROGRESS = "FOLLOFING_IN_PROGRESS";
 
-export const followAC = (userID) => {return {type: FOLLOW, userID}};
-export const unfollowAC = (userID) => {return {type: UNFOLLOW, userID}};
-export const setUsersAC = (users) => {return {type: SET_USERS, users}};
+
+export const followSuccess = (userID) => {
+    return {type: FOLLOW, userID}
+};
+export const unfollowSuccess = (userID) => {
+    return {type: UNFOLLOW, userID}
+};
+export const setUsers = (users) => {
+    return {type: SET_USERS, users}
+};
+export const setCurrentPage = (currentPage) => {
+    return {type: SET_CURRENT_PAGE, currentPage}
+};
+export const setTotalUsersCount = (totalCount) => {
+    return {type: SET_TOTAL_USERS, totalCount}
+};
+export const toggleFetching = (isFetching) => {
+    return {type: TOGGLE_IS_FETCHING, isFetching}
+};
+export const toggleFollowingProgress = (isFetching, userID) => {
+    return {type: FOLLOFING_IN_PROGRESS, isFetching, userID}
+};
 
 
 let initialState = {
-    users: [
-        { likes: 1,
-            id: 1,
-            followed: false,
-            photoURL: "https://www.w3schools.com/howto/img_avatar.png",
-            fullName: "Bohdan Korol",
-            status: "react junior developer",
-            location: {city: "lutsk", country: "Ukraine"}
-        },
-        { likes: 1,
-            id: 2,
-            followed: true,
-            photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoDem2quTGjJaESMoAdNsgf-NTuHnz0ORUbrtDOHjrv3otfjAj",
-            fullName: "Florian Dirigl",
-            status: "changemanager U11",
-            location: {city: "Abensberg", country: "Germany"}
-        },
-        { likes: 3,
-            id: 3,
-            followed: false,
-            photoURL: "https://png.pngtree.com/svg/20170308/508749a69e.png",
-            fullName: "Duleba Andrii",
-            status: "TPL IE VS 30 ",
-            location: {city: "lutsk", country: "Ukraine"}
-        }
-    ]
+    users: [],
+    pageSize: 7,
+    totalUsersCount: 0,
+    currentPage: 1,
+    isFetching: false,
+    followingInProgress: []
+
 };
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -57,12 +63,71 @@ const usersReducer = (state = initialState, action) => {
                     return u
                 }),
             };
+        case SET_CURRENT_PAGE:
+            return {
+                ...state,
+                currentPage: action.currentPage
+            };
         case SET_USERS:
-            return {...state,
-                users: [...state.users, ...action.users]};
+            return {
+                ...state,
+                users: action.users
+            };
+        case SET_TOTAL_USERS:
+            return {
+                ...state,
+                totalUsersCount: action.totalCount
+            };
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            };
+        case FOLLOFING_IN_PROGRESS:
+            return {
+                ...state,
+                followingInProgress: action.isFetching
+                    ? [...state.followingInProgress, action.userID]
+                    : state.followingInProgress.filter(id => id !== action.userID)
+            };
+
         default:
             return state
     }
 };
+
+export const requestUsers = (currentPage, pageSize) => {
+   return (dispatch) => {
+        dispatch(toggleFetching(true))
+       userAPI.getUsers(currentPage, pageSize).then(data => {
+            dispatch(setTotalUsersCount(data.totalCount / 15))
+            dispatch(setUsers(data.items))
+            dispatch(toggleFetching(false))
+        });
+    }
+}
+
+export const follow = (userID) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProgress(true, userID))
+        userAPI.followAPI(userID).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(followSuccess(userID))
+            }
+            dispatch(toggleFollowingProgress(false, userID))
+        })
+    }
+}
+export const unfollow = (userID) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProgress(true, userID))
+        userAPI.unfollowAPI(userID).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(unfollowSuccess(userID))
+            }
+            dispatch(toggleFollowingProgress(false, userID))
+        })
+    }
+}
 
 export default usersReducer;

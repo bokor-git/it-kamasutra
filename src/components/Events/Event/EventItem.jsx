@@ -1,21 +1,29 @@
-
 import React from 'react';
-const EventDataItem = (props)=>{
-    return <div>
-        <div><img alt="0" src={props.poster}/> </div>
-        {props.id} {props.text}
-        <div>
-            <button id="addEvent" onClick={()=> window.alert(`${props.text} Added in list My Events`)}> Accept Event</button></div></div>
-}
-
-const EventItem = (props)=> {
-    debugger
-let eventElement= props.eventData.map(ev =>
- <EventDataItem  poster={ev.poster} id={ev.id} text={ev.text}/>)
-    return(
-       <div> {eventElement}</div>)
+import s from "./Event.module.css"
 
 
-}
+
+
+const EventItem =(props)=> {
+        return <div className={s.event}>
+            <h1>Events</h1>
+            {props.eventData.map(ev => (<div>
+                <img alt="0" src={ev.poster}/>
+                <div>{ev.text}</div>
+                <div>
+                    <button id="addEvent" onClick={() => props.addEvent(ev.id,ev.text )}>
+                        Accept
+                        Event
+                    </button>
+                </div>
+
+            </div>))
+            }
+        </div>
+
+    }
+
+
+
 
 export default EventItem;
