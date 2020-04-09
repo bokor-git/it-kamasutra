@@ -29,35 +29,24 @@ const myProfileReducer = (state = initialState, action) => {
             return state
     }
 };
-export const getProfileInfo = (userId) => {
-    return (dispatch) => {
-        profileAPI.getProfile(userId).then(
-            response => {
-                dispatch(setProfileDate(response.data))
-            }
-        )
-    }
-}
+export const getProfileInfo = (userId) => async (dispatch) => {
+    const response = await profileAPI.getProfile(userId)
+    dispatch(setProfileDate(response.data))
 
-export const getProfileStatus = (userId) => {
-    return (dispatch) => {
-        profileAPI.getStatus(userId).then(
-            response => {
-                dispatch(setStatusProfile(response.data))
-            }
-        )
-    }
-}
+};
 
-export const updateProfileStatus = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatus(status).then(
-            response => {
-                if (response.data.resultCode===0)
-                dispatch(setStatusProfile(status))
-            }
-        )
-    }
-}
+export const getProfileStatus = (userId) => async (dispatch) => {
+    const response = await profileAPI.getStatus(userId);
+    dispatch(setStatusProfile(response.data))
+
+};
+
+
+export const updateProfileStatus = (status) => async (dispatch) => {
+    const response = await profileAPI.updateStatus(status);
+    if (response.data.resultCode === 0)
+        dispatch(setStatusProfile(status))
+};
+
 
 export default myProfileReducer;

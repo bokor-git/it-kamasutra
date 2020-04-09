@@ -1,11 +1,12 @@
 import React from 'react';
 import s from "./UserProfile.module.css"
+import Loading from "../../common/Conponents/Loading";
 
 
 
 const UserProfileInfo = (props) => {
     if (!props.profileData) {
-        return <h1>Loading......</h1>
+        return <Loading/>
     }
     return <div className={s.profile}>
         <h1>{props.profileData.fullName} </h1>

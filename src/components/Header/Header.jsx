@@ -3,12 +3,12 @@ import s from "./Header.module.css"
 import {NavLink} from "react-router-dom";
 
 
-const Header = (props)=> {
+const Header = ({isAuth, login, singOutThunk})=> {
     return(
         <div className={s.header}>
             <div className={s.headerText}>iRunner</div>
 
-            {props.isAuth? <div className={s.login}><div> <div></div>{props.login}</div> <button onClick={()=>{props.singOutThunk()}}>logout</button></div>:
+            {isAuth? <div className={s.login}><div> <div></div>{login}</div> <button onClick={()=>{singOutThunk()}}>logout</button></div>:
                 <NavLink to={"/login"}>
             <div className={s.login}>Login</div>
         </NavLink>}

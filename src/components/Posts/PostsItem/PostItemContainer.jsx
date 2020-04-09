@@ -1,5 +1,5 @@
 
-import {addPostActionCreator, postLikeAC, updateNewPostTextActionCreator} from "../../../Redux/dialogs-reducer";
+import { addPostThunk,  postLikeThunk} from "../../../Redux/dialogs-reducer";
 import {connect} from "react-redux";
 import PostItem from "./PostItem";
 import React from "react";
@@ -21,19 +21,9 @@ let mapStateToProps = (state) => {
     };
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        addPost: (post) => {
-            dispatch(addPostActionCreator(post))
-        },
-        likePost: (userID) => {
-            dispatch(postLikeAC(userID))
-        }
-    };
-};
 
 
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps, {addPostThunk, postLikeThunk}),
     withAuthRedirect)
 (PostContainerAPI)

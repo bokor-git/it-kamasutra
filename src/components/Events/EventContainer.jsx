@@ -1,18 +1,12 @@
-
 import React from 'react';
 import EventItem from "./Event/EventItem";
-import {addPostActionCreator, postLikeAC, updateNewPostTextActionCreator} from "../../Redux/dialogs-reducer";
 import {connect} from "react-redux";
-import PostItem from "../Posts/PostsItem/PostItem";
-import {sendMassageCreator, updateNewMassageBodyCreator} from "../../Redux/dialog-reducer";
-import {addEvent, addEventAC} from "../../Redux/events-reduser";
+import {addEvent} from "../../Redux/events-reduser";
 
 
 
 class EventItemContainerAPI extends React.Component{
-    constructor() {
-        super();
-    }
+
     render() {
         return <EventItem eventData={this.props.eventData}
                           myEvents={this.props.myEvents}

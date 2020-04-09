@@ -1,5 +1,6 @@
-const ADD_POST = "ADD-POST";
-const LIKE_POST = "LIKE_POST";
+const ADD_POST = "dialog-reducer/ADD-POST";
+const LIKE_POST = "dialog-reducer/LIKE_POST";
+const DELETE_POST = "dialog-reducer/DELETE_POST";
 
 export const addPostActionCreator = (post) => {
     return {type: ADD_POST, post}
@@ -7,6 +8,9 @@ export const addPostActionCreator = (post) => {
 
 export const postLikeAC = (postID) => {
     return {type: LIKE_POST, postID}
+}
+export const deletePostActionCreator = (postID) => {
+    return {type: DELETE_POST, postID}
 }
 
 
@@ -55,8 +59,20 @@ const dialogsReducer = (state = initialState, action) => {
                     return p
                 }),
             };
+        case DELETE_POST:
+            return {
+                ...state,
+                postData: state.postData.filter(p => p.id != action.postID)
+            };
         default:
             return state
     }
 }
 export default dialogsReducer;
+
+export const addPostThunk = (post) => (dispatch) => {
+    dispatch(addPostActionCreator(post))
+}
+export const postLikeThunk = (userID) => (dispatch) => {
+    dispatch(postLikeAC(userID))
+}

@@ -1,4 +1,4 @@
-import {sendMassageCreator, updateNewMassageBodyCreator} from "../../Redux/dialog-reducer";
+import {sendMassageCreator} from "../../Redux/dialog-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import React from "react";

@@ -3,16 +3,16 @@ import React from 'react';
 import s from "./../Dialogs.module.css";
 
 
-const Message = (props) => {
+const Message = ({text}) => {
     return (
         <div className={s.massages}>
-            {props.text}
+            {text}
         </div>
     )
 }
 
-const MassageItem = (props) => {
-    let massageElement = props.massageData.map(
+const MassageItem = ({massageData}) => {
+    let massageElement = massageData.map(
         massage => <Message text={massage.text} id={massage.id}/>)
     return (<div className={s.massages}>
             {massageElement}

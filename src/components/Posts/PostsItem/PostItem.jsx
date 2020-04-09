@@ -8,8 +8,8 @@ import {Textarea} from "../../common/FormsControls/FormsControls";
 
 const maxLength10 =maxLengthCreator(15)
 
-const PostForm = (props) => {
-    return <form onSubmit={props.handleSubmit}>
+const PostForm = ({handleSubmit}) => {
+    return <form onSubmit={handleSubmit}>
         <div><Field placeholder={"Post"} name={"Post"} component={Textarea}
                     validate={[required, maxLength10]}/></div>
         <button> Add post</button>
@@ -20,15 +20,15 @@ const ReduxPostForm = reduxForm({
     form: 'post'
 })(PostForm);
 
-const PostItem = (props) => {
-    if (props.isAuth === false) return <Redirect to={"/Login"}/>
-    let postElement = props.postData.map
+const PostItem =  ({isAuth, postData, postLikeThunk, addPostThunk}) => {
+    if (isAuth === false) return <Redirect to={"/Login"}/>
+    let postElement = postData.map
     (p => <div className={style.post}>
-        <div><img alt="no" src={p.postAvatar}></img></div>
+        <div><img alt="no" src={p.postAvatar}/></div>
         <div>{p.postText}</div>
         <div>Like: {p.postLike}</div>
         <button onClick={() => {
-            props.likePost(p.id)
+            postLikeThunk(p.id)
         }}>
             like
         </button>
@@ -36,7 +36,7 @@ const PostItem = (props) => {
 
 
     let onSubmit = (formData) => {
-        props.addPost((formData.Post));};
+        addPostThunk((formData.Post))};
 
     return (
         <div>
@@ -45,7 +45,6 @@ const PostItem = (props) => {
                 <ReduxPostForm onSubmit={onSubmit}/>
             </div>
             <div>
-
                 {postElement}
             </div>
         </div>)
