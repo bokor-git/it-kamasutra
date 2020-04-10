@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import './App.css';
 import Profile from "./components/Profile-menu/Profile";
 import Search from "./components/Search/Search";
@@ -8,7 +8,7 @@ import Suggestion from "./components/Suggestion/Suggestion";
 import Explore from "./components/Explore/Explore";
 import {BrowserRouter, Route, withRouter} from "react-router-dom";
 import Posts from "./components/Posts/Posts";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
+
 import UsersContainer from "./components/Users/UsersContainer";
 import UserProfileContainer from "./components/Users/UserProfile/UserProfileContainer";
 import NewsContainer from "./components/News/NewsContainer";
@@ -21,6 +21,9 @@ import {compose} from "redux";
 import {initializeApp} from "./Redux/app-reducer";
 import Loading from "./components/common/Conponents/Loading";
 import store from "./Redux/redux-store";
+import withSuspense from "./hoc/Suspense";
+//import DialogsContainer from "./components/Dialogs/DialogsContainer";
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 
 
 class App extends React.Component {
@@ -41,7 +44,7 @@ class App extends React.Component {
                 <People/>
                 <div className="wrapper-content">
                     <Route path="/Events" render={() => (<EventContainer/>)}/>
-                    <Route path="/Dialogs" render={() => (<DialogsContainer/>)}/>
+                    <Route path="/Dialogs" render={withSuspense(DialogsContainer)}/>
                     <Route path="/Posts" render={() => (<Posts/>)}/>
                     <Route path="/Users" render={() => (<UsersContainer/>)}/>
                     <Route path="/News" render={() => (<NewsContainer/>)}/>
