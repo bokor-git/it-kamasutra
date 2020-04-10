@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import './App.css';
 import Profile from "./components/Profile-menu/Profile";
 import Search from "./components/Search/Search";
@@ -6,7 +6,7 @@ import Category from "./components/Category/Category";
 import People from "./components/People/People";
 import Suggestion from "./components/Suggestion/Suggestion";
 import Explore from "./components/Explore/Explore";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {HashRouter, Route, withRouter} from "react-router-dom";
 import Posts from "./components/Posts/Posts";
 
 import UsersContainer from "./components/Users/UsersContainer";
@@ -72,11 +72,11 @@ const AppContainer = compose(
 
 
 const SocialNetworkApp = (props) => {
-    return <BrowserRouter>
+    return <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>
+    </HashRouter>
 }
 
 export default SocialNetworkApp
