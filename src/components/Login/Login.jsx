@@ -3,7 +3,7 @@ import {Field, reduxForm} from "redux-form";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {singInThunk, singOutThunk} from "../../Redux/auth-reducer";
-import {Input} from "../common/FormsControls/FormsControls";
+import {Input, myCreateField} from "../common/FormsControls/FormsControls";
 import {maxLengthCreator, required} from "../../utilits/validators/validators";
 import {Redirect} from "react-router-dom";
 import style from "../common/FormsControls/FormsControls.module.css"
@@ -19,6 +19,9 @@ const LoginForm = (props) => {
             {props.error}
         </div>
         }
+        {props.captchaUrl&& <img src={props.captchaUrl}/> }
+        {props.captchaUrl&&  myCreateField("Symbols from img", "captcha", [required], "input")}
+
         <div>
             <button>login</button>
         </div>
@@ -30,7 +33,7 @@ const ReduxLoginForm = reduxForm({
 
 class UsersAPIComponent extends React.Component {
     onSubmit = (formData) => {
-        this.props.singInThunk(formData.Email, formData.Password);
+        this.props.singInThunk(formData.Email, formData.Password, formData.captcha);
     };
 
     render() {
@@ -40,7 +43,7 @@ class UsersAPIComponent extends React.Component {
         }
         return <div>
             <h1>Login</h1>
-            <ReduxLoginForm onSubmit={this.onSubmit}/>
+            <ReduxLoginForm onSubmit={this.onSubmit} captchaUrl={this.props.captchaUrl} />
 
         </div>
     }
@@ -49,6 +52,7 @@ class UsersAPIComponent extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
+        captchaUrl:state.auth.captchaUrl,
         isAuth: state.auth.isAuth,
     }
 }
