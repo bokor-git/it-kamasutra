@@ -8,7 +8,6 @@ const UserPagesCount = ({totalUsersCount, pageSize, onPageChanged, currentPage, 
     for (let i = 1; i <= pageCount; i++) {pages.push(i)}
     let portionCount = Math.ceil( pageCount/ portionSize);
     let [portionNumber, setPortionNumber] = useState(1);
-    console.log(portionNumber);
     let leftPortionPageNumber = (portionNumber-1)*portionSize+1;
     let rightPortionPageNumber = portionNumber*portionSize
 return <div className={s.border}>

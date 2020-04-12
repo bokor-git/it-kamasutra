@@ -6,7 +6,7 @@ import Category from "./components/Category/Category";
 import People from "./components/People/People";
 import Suggestion from "./components/Suggestion/Suggestion";
 import Explore from "./components/Explore/Explore";
-import {HashRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import Posts from "./components/Posts/Posts";
 
 import UsersContainer from "./components/Users/UsersContainer";
@@ -27,8 +27,15 @@ const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsCo
 
 
 class App extends React.Component {
+    catchAllUnhandledErrors=(promiseRejectionEvent)=>{
+        alert(promiseRejectionEvent.reason);
+    }
     componentDidMount() {
         this.props.initializeApp()
+        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors )
+    }
+    componentWillUnmount() {
+        window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors )
     }
 
     render() {
@@ -42,15 +49,19 @@ class App extends React.Component {
                 <Category/>
                 <Search/>
                 <People/>
+
                 <div className="wrapper-content">
-                    <Route path="/Events" render={() => (<EventContainer/>)}/>
-                    <Route path="/Dialogs" render={withSuspense(DialogsContainer)}/>
-                    <Route path="/Posts" render={() => (<Posts/>)}/>
-                    <Route path="/Users" render={() => (<UsersContainer/>)}/>
-                    <Route path="/News" render={() => (<NewsContainer/>)}/>
-                    <Route path="/Profile/:userID" render={() => (<UserProfileContainer/>)}/>
-                    <Route exact path="/Profile" render={() => (<UserProfileContainer/>)}/>
-                    <Route path="/Login" render={() => (<Login/>)}/>
+                    <Switch>
+                    <Redirect exact from="/"  to="/Profile" />
+                    <Route exact path="/Profile/:userID?" render={() => (<UserProfileContainer/>)}/>
+                    <Route exact path="/Events" render={() => (<EventContainer/>)}/>
+                    <Route exact path="/Dialogs" render={withSuspense(DialogsContainer)}/>
+                    <Route exact path="/Posts" render={() => (<Posts/>)}/>
+                    <Route exact path="/Users" render={() => (<UsersContainer/>)}/>
+                    <Route exact path="/News" render={() => (<NewsContainer/>)}/>
+                    <Route exact path="/Login" render={() => (<Login/>)}/>
+                    <Route exact path="*" render={() => <h1>Error 404 </h1>}/>
+                    </Switch>
                 </div>
                 <Suggestion/>
                 <Explore/>
@@ -72,11 +83,11 @@ const AppContainer = compose(
 
 
 const SocialNetworkApp = (props) => {
-    return <HashRouter>
+    return <BrowserRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </HashRouter>
+    </BrowserRouter>
 }
 
 export default SocialNetworkApp

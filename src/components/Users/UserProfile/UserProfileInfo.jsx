@@ -2,11 +2,9 @@ import React, {useState} from 'react';
 import s from "./UserProfile.module.css"
 import Loading from "../../common/Conponents/Loading";
 import {ProfileDataFormRedux} from "./ProfileDataForm";
-import handleSubmit from "redux-form/lib/handleSubmit";
 
 
 const UserProfileInfo = (props) => {
-
     let [editMode, setEditMode] = useState(false);
     let onMainPhotoSelected = (e) => {
         if (e.target.files.length) {

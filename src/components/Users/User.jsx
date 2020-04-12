@@ -6,7 +6,7 @@ import s from "./Users.module.css";
 const User = ({follow, unfollow, followingInProgress, user}) => {
     return <div className={s.users}>
                         <span>
-                            <NavLink to={"/Profile/" + user.id}>
+                            <NavLink exact to={"/Profile/" + user.id}>
                             <div><img
                                 src={user.photos.small != null ? user.photos.small : "https://www.shareicon.net/data/512x512/2016/07/21/799325_user_512x512.png"}
                                 alt="No Avatar"/></div>

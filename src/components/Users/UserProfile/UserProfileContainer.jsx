@@ -29,12 +29,13 @@ class MyProfileContainerAPI extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.profileData != prevProps.profileData) {
+        if (this.props.status != prevProps.status) {
             this.refreshProfile()
         }
     }
 
     render() {
+        console.log("render MyProfileContainerAPI");
         return <UserProfile
             saveProfile ={this.props.saveProfile}
             savePhoto={this.props.savePhoto}
