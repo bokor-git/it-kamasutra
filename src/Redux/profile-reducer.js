@@ -1,9 +1,11 @@
-import {profileAPI, userAPI} from "../api/api";
+import {profileAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
 
 const SET_USER_PROFILE = "SET_USER_PROFILE"
 const SET_STATUS_PROFILE = "SET_STATUS_PROFILE"
 const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS"
+// action creators
+
 
 export const setProfileDate = (profileData) => ({type: SET_USER_PROFILE, profileData});
 export const setStatusProfile = (status) => ({type: SET_STATUS_PROFILE, status});

@@ -35,7 +35,6 @@ class MyProfileContainerAPI extends React.Component {
     }
 
     render() {
-        console.log("render MyProfileContainerAPI");
         return <UserProfile
             saveProfile ={this.props.saveProfile}
             savePhoto={this.props.savePhoto}

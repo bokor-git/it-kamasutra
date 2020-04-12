@@ -14,6 +14,7 @@ const DialogItem = ({dialogsData}) => {
         dialog => <Dialog name={dialog.name} id={dialog.id}/>
     );
     return (
+
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
                 {dialogElement}
