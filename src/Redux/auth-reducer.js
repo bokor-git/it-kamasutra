@@ -46,7 +46,6 @@ export const getAuthUserData = () => async (dispatch) => {
     }
 ;
 export const singInThunk = (email, password, captcha) => async (dispatch) => {
-    debugger
     const response = await authAPI.login(email, password, captcha);
     if (response.data.resultCode === 0) {
         dispatch(getAuthUserData())

@@ -1,7 +1,7 @@
 .event {
     background-color: goldenrod;
-    grid-column: 3;
-    grid-row: 3/6;
+    grid-column: 1;
+    grid-row: 7/10;
 }
 
 .event li {

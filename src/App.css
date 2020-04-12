@@ -1,9 +1,8 @@
 .wrapper {
     display: grid;
     grid-gap: 20px;
-
     grid-template-rows: 75px 100px 100px 100px 100px 100px 100px 100px 100px 500px ;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 4fr;
     text-align: center;
     width: 1200px;
     margin: 0 auto;
@@ -12,9 +11,8 @@
 }
 
 .wrapper-content {
-
     background-color: darkseagreen;
     grid-column: 2;
-    grid-row: 3/11;
+    grid-row: 2/11;
 
 }

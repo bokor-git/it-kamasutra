@@ -1,14 +1,9 @@
 import React from 'react';
 import './App.css';
 import Profile from "./components/Profile-menu/Profile";
-import Search from "./components/Search/Search";
 import Category from "./components/Category/Category";
-import People from "./components/People/People";
-import Suggestion from "./components/Suggestion/Suggestion";
-import Explore from "./components/Explore/Explore";
-import {BrowserRouter, HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import Posts from "./components/Posts/Posts";
-
 import UsersContainer from "./components/Users/UsersContainer";
 import UserProfileContainer from "./components/Users/UserProfile/UserProfileContainer";
 import NewsContainer from "./components/News/NewsContainer";
@@ -47,9 +42,6 @@ class App extends React.Component {
                 <HeaderContainer store={this.props.store}/>
                 <Profile/>
                 <Category/>
-                <Search/>
-                <People/>
-
                 <div className="wrapper-content">
                     <Switch>
                     <Redirect exact from="/"  to="/Profile" />
@@ -63,8 +55,6 @@ class App extends React.Component {
                     <Route exact path="*" render={() => <h1>Error 404 </h1>}/>
                     </Switch>
                 </div>
-                <Suggestion/>
-                <Explore/>
                 <MyEventContainer store={this.props.store}/>
             </div>
         )
