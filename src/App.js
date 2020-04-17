@@ -23,7 +23,7 @@ const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsCo
 
 class App extends React.Component {
     catchAllUnhandledErrors=(promiseRejectionEvent)=>{
-        alert(promiseRejectionEvent.reason);
+        alert(promiseRejectionEvent.reason); //catch Error and show alert
     }
     componentDidMount() {
         this.props.initializeApp()
@@ -35,7 +35,7 @@ class App extends React.Component {
 
     render() {
         if (!this.props.initialized) {
-            return <Loading/>
+            return <Loading/> //show Loading is App is not initialized
         }
         return (
             <div className="wrapper">
@@ -78,7 +78,7 @@ const SocialNetworkApp = (props) => {
             <AppContainer/>
         </Provider>
     </BrowserRouter>
-}
+};
 
 export default SocialNetworkApp
 

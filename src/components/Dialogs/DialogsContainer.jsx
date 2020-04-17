@@ -10,7 +10,7 @@ class DialogsContainerAPI extends React.Component {
     render() {
         return <Dialogs {...this.props}/>
     }
-}
+};
 
 let mapStateToProps = (state) => {
     return {

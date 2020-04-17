@@ -5,7 +5,6 @@ import {singOutThunk} from "../../Redux/auth-reducer";
 
 
 class HeaderContainerIPA extends React.Component {
-
     render() {
         return <Header {...this.props}/>
 

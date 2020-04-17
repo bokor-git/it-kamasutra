@@ -2,15 +2,14 @@ import React from 'react';
 import s from "./Profile.module.css";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
+import {getProfileInfo} from "../../Redux/profile-reducer";
 
 class Profile extends React.Component {
-    /* componentDidMount() {
-         if (this.props.initialized=true){
-             const img= this.props.profileData.photos.small
+    componentDidMount() {
+        debugger
+        this.props.getProfileInfo(this.props.userID)
+    }
 
-         }
-     }
- */
     render() {
         return (
             <div className={s.profile}>
@@ -30,9 +29,10 @@ class Profile extends React.Component {
 let mapStateToProps = (state) => {
     return {
         profileData: state.myProfilePage.profileData,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        userID: state.auth.userID
 
     }
 }
-const ProfileContainer = connect(mapStateToProps, {})(Profile)
+const ProfileContainer = connect(mapStateToProps, {getProfileInfo})(Profile)
 export default ProfileContainer;
