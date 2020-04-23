@@ -14,7 +14,7 @@ class HeaderContainerIPA extends React.Component {
 let mapStateToProps = (state) => ({
     isAuth:  state.auth.isAuth,
     login:  state.auth.login
-})
+});
 
 const HeaderContainer = connect(mapStateToProps, { singOutThunk})(HeaderContainerIPA)
 

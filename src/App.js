@@ -24,7 +24,7 @@ const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsCo
 class App extends React.Component {
     catchAllUnhandledErrors=(promiseRejectionEvent)=>{
         alert(promiseRejectionEvent.reason); //catch Error and show alert
-    }
+    };
     componentDidMount() {
         this.props.initializeApp()
         window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors )
@@ -46,7 +46,7 @@ class App extends React.Component {
                     <Switch>
                     <Redirect exact from="/"  to="/Profile" />
                     <Route exact path="/Profile/:userID?" render={() => (<UserProfileContainer/>)}/>
-                    <Route exact path="/Events" render={() => (<EventContainer/>)}/>
+                    <Route path="/Events" render={() => (<EventContainer/>)}/>
                     <Route exact path="/Dialogs" render={withSuspense(DialogsContainer)}/>
                     <Route exact path="/Posts" render={() => (<Posts/>)}/>
                     <Route exact path="/Users" render={() => (<UsersContainer/>)}/>

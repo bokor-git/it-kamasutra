@@ -30,9 +30,8 @@ let mapStateToProps = (state) => {
     return {
         profileData: state.myProfilePage.profileData,
         isAuth: state.auth.isAuth,
-        userID: state.auth.userID
-
+        userID: state.auth.userID,
     }
-}
+};
 const ProfileContainer = connect(mapStateToProps, {getProfileInfo})(Profile)
 export default ProfileContainer;

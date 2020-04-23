@@ -1,12 +1,14 @@
 import React from 'react';
 import s from "./../Events.module.css"
+import {NavLink} from "react-router-dom";
 
 const EventHeader = (props) => {
     return <div className={s.eventHeader}>
-        <span>Full Marathons</span>
-        <span>Half Marathons</span>
-        <span>10km Runs</span>
-        <span>5km Runs</span>
+        <NavLink exact to="/Events/Full-Marathons" activeClassName={s.active}>Full Marathons</NavLink>
+        <NavLink to="/Events/Half-Marathons" activeClassName={s.active}>Half Marathons</NavLink>
+        <NavLink to="/Events/10km" activeClassName={s.active}>10km Runs</NavLink>
+        <NavLink to="/Events/5km" activeClassName={s.active}>5km Runs</NavLink>
+
     </div>
 };
 
