@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Profile from "./components/Profile-menu/Profile";
 import Category from "./components/Category/Category";
-import {BrowserRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import Posts from "./components/Posts/Posts";
 import UsersContainer from "./components/Users/UsersContainer";
 import UserProfileContainer from "./components/Users/UserProfile/UserProfileContainer";
@@ -75,11 +75,11 @@ const AppContainer = compose(
 
 
 const SocialNetworkApp = (props) => {
-    return <BrowserRouter>
+    return <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>
+    </HashRouter>
 };
 
 export default SocialNetworkApp
