@@ -1,5 +1,11 @@
 import React from 'react';
-import {AllEventsItems, FullMarathonsItems, HalfMarathonsItems,} from "./Event/EventsItems";
+import {
+    AllEventsItems,
+    FullMarathonsItems,
+    HalfMarathonsItems,
+    Marathons10kmItems,
+    Marathons5kmItems,
+} from "./Event/EventsItems";
 import {connect} from "react-redux";
 import {addEvent} from "../../Redux/events-reduser";
 import s from "./Events.module.css";
@@ -16,8 +22,10 @@ class EventItemContainerAPI extends React.Component {
             <div className="events-content">
                 <Switch>
                     <Route exact path="/Events" render={() => (<AllEventsItems {...this.props}/>)}/>
-                    <Route exact path="/Events/Full-Marathons" render={() => (<FullMarathonsItems {...this.props}/>)}/>
                     <Route exact path="/Events/Half-Marathons" render={() => (<HalfMarathonsItems {...this.props}/>)}/>
+                    <Route exact path="/Events/Full-Marathons" render={() => (<FullMarathonsItems {...this.props}/>)}/>
+                    <Route exact path="/Events/10km-Marathons" render={() => (<Marathons10kmItems {...this.props}/>)}/>
+                    <Route exact path="/Events/5km-Marathons" render={() => (<Marathons5kmItems {...this.props}/>)}/>
                 </Switch>
             </div>
         </div>

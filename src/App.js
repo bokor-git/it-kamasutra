@@ -17,13 +17,14 @@ import {initializeApp} from "./Redux/app-reducer";
 import Loading from "./components/common/Conponents/Loading";
 import store from "./Redux/redux-store";
 import withSuspense from "./hoc/Suspense";
+import Calc from "./components/Store/Store";
 //import DialogsContainer from "./components/Dialogs/DialogsContainer";
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 
 
 class App extends React.Component {
     catchAllUnhandledErrors=(promiseRejectionEvent)=>{
-        alert(promiseRejectionEvent.reason); //catch Error and show alert
+        alert(promiseRejectionEvent.reason);
     };
     componentDidMount() {
         this.props.initializeApp()
@@ -35,7 +36,7 @@ class App extends React.Component {
 
     render() {
         if (!this.props.initialized) {
-            return <Loading/> //show Loading is App is not initialized
+            return <Loading/>
         }
         return (
             <div className="wrapper">
@@ -52,6 +53,7 @@ class App extends React.Component {
                     <Route exact path="/Users" render={() => (<UsersContainer/>)}/>
                     <Route exact path="/News" render={() => (<NewsContainer/>)}/>
                     <Route exact path="/Login" render={() => (<Login/>)}/>
+                        <Route exact path="/Store" render={() => (<Calc/>)}/>
                     <Route exact path="*" render={() => <h1>Error 404 </h1>}/>
                     </Switch>
                 </div>
