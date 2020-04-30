@@ -18,6 +18,7 @@ import Loading from "./components/common/Conponents/Loading";
 import store from "./Redux/redux-store";
 import withSuspense from "./hoc/Suspense";
 import Calc from "./components/Store/Store";
+import TodoList from "./components/Store/Todo";
 //import DialogsContainer from "./components/Dialogs/DialogsContainer";
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 
@@ -53,7 +54,7 @@ class App extends React.Component {
                     <Route exact path="/Users" render={() => (<UsersContainer/>)}/>
                     <Route exact path="/News" render={() => (<NewsContainer/>)}/>
                     <Route exact path="/Login" render={() => (<Login/>)}/>
-                        <Route exact path="/Store" render={() => (<Calc/>)}/>
+                        <Route exact path="/Store" render={() => (<TodoList/>)}/>
                     <Route exact path="*" render={() => <h1>Error 404 </h1>}/>
                     </Switch>
                 </div>
