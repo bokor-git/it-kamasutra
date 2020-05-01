@@ -8,13 +8,15 @@ import Loading from "../common/Conponents/Loading";
 const TodoList = () => {
     const [todos, setTodos] = useState([])
     const [value, setValue] = useState("")
-
-    useEffect(()=>axios.get('https://jsonplaceholder.typicode.com/todos?_limit=30').then(response => setTodos(response.data)), [])
+    const [items, setItems] = useState(1)
+    console.log(items);
+   // useEffect(()=>axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${items}`).then(response => setTodos(response.data)),[items])
 const addTodo=(value)=>{
         const newTodos = {userId: 1, id: new Date().getTime(), title: value, completed: false}
         const newArr = [...todos, newTodos];
    setTodos(newArr)
 }
+
 const del = (id)=>{
     return  setTodos(todos.filter(td => td.id !== id))
 }
@@ -23,8 +25,12 @@ const check = (id)=>{
         return todo}))
 
 };
+    const addItems = async (items)=>{
+       let responce = await axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${items}`)
+        await setTodos(responce.data)
+    }
    return(
-    <Context.Provider value={{value, setValue, addTodo}}>
+    <Context.Provider value={{value, setValue, addTodo,items, setItems , setTodos, addItems}}>
 
     <div className="todolist">
         <Input/>
