@@ -4,13 +4,13 @@ import * as axios from "axios";
 import Context from "./Context";
 import Input from "./Input";
 import Loading from "../common/Conponents/Loading";
+import "./todolist.css"
 
 const TodoList = () => {
     const [todos, setTodos] = useState([])
     const [value, setValue] = useState("")
-    const [items, setItems] = useState(1)
-    console.log(items);
-   // useEffect(()=>axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${items}`).then(response => setTodos(response.data)),[items])
+    const [items, setItems] = useState(5)
+    if (todos.length===0){axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${items}`).then(response => setTodos(response.data))}
 const addTodo=(value)=>{
         const newTodos = {userId: 1, id: new Date().getTime(), title: value, completed: false}
         const newArr = [...todos, newTodos];

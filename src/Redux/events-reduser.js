@@ -1,9 +1,14 @@
 const ADD_EVENT = "ADD_EVENT";
-
+const CLEAN = "CLEAN";
 
 export const addEvent = (eventID, evText) => {
     return {type: ADD_EVENT, eventID: eventID, evText: evText}
 };
+
+export const clean = () => {
+    return {type: CLEAN}
+};
+
 
 
 let initialState = {
@@ -69,9 +74,19 @@ const eventsReducer = (state = initialState, action) => {
             return {
                 ...state, myEvents: [...state.myEvents]
             };
+        case CLEAN:
+            return {
+                ...state, myEvents: []
+            };
         default:
             return state
     }
 
 };
+
+
 export default eventsReducer;
+
+export const cleanThunk=()=>dispatch=>{
+    dispatch(clean())
+}
