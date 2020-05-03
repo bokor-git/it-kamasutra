@@ -54,7 +54,7 @@ class App extends React.Component {
                     <Route exact path="/Users" render={() => (<UsersContainer/>)}/>
                     <Route exact path="/News" render={() => (<NewsContainer/>)}/>
                     <Route exact path="/Login" render={() => (<Login/>)}/>
-                        <Route exact path="/Store" render={() => (<TodoList/>)}/>
+                        <Route exact path="/Store" render={() => (<Calc/>)}/>
                     <Route exact path="*" render={() => <h1>Error 404 </h1>}/>
                     </Switch>
                 </div>
